@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Vaga garantida — Imersão Máquina de Vendas | Salatiel Batista</title>
+    <meta name="description" content="Sua vaga na Imersão Máquina de Vendas está garantida. Próximos passos: entrar no grupo de WhatsApp e marcar 06/06 na agenda.">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26504188302609300');
+    fbq('track', 'PageView');
+
+    // Captura dados da Kiwify via querystring
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var valor = parseFloat((params.get('valor') || '47').replace(',', '.'));
+        if (isNaN(valor) || valor <= 0) valor = 47;
+        var orderId = params.get('order_id') || params.get('id') || '';
+        fbq('track', 'Purchase', {
+            value: valor,
+            currency: 'BRL',
+            content_name: 'Imersao Maquina de Vendas',
+            content_ids: ['imv-2026-06-06'],
+            content_type: 'product',
+            order_id: orderId
+        });
+    })();
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=26504188302609300&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'orange': '#F97316',
+                        'orange-light': '#FB923C',
+                        'dark': '#0A0A0A',
+                        'dark-2': '#111111',
+                        'dark-3': '#1A1A1A',
+                        'wa-green': '#25D366',
+                        'wa-green-dark': '#1EBE57',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #0A0A0A; color: #fff; }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #F97316; border-radius: 2px; }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at 50% 0%, rgba(37,211,102,0.13) 0%, transparent 65%), #0A0A0A;
+        }
+
+        @keyframes pulse-wa {
+            0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); transform: scale(1); }
+            50%      { box-shadow: 0 0 0 22px rgba(37,211,102,0); transform: scale(1.015); }
+        }
+        .pulse-wa { animation: pulse-wa 2.4s infinite; }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fade-up 0.7s ease-out both; }
+
+        .step-card {
+            background: #111;
+            border: 1px solid #1A1A1A;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            border-color: #F97316;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A]">
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="bg-[#0A0A0A] border-b border-[#1A1A1A] py-5 px-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-[#F97316] flex items-center justify-center text-white font-black text-lg">DM</div>
+            <div>
+                <p class="text-white font-bold text-sm leading-tight">Digital Master</p>
+                <p class="text-gray-500 text-xs leading-tight">por Salatiel Batista</p>
+            </div>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 text-[#25D366] text-sm font-semibold">
+            <span class="w-2 h-2 bg-[#25D366] rounded-full animate-pulse"></span>
+            Pagamento confirmado
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero-bg py-16 sm:py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center fade-up">
+        <div class="inline-block bg-[#25D366]/10 border border-[#25D366]/40 rounded-full px-5 py-2 mb-6">
+            <span class="text-[#25D366] text-sm font-bold tracking-wide">VAGA CONFIRMADA</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6">
+            PARABÉNS<span id="hero-nome">!</span><br>
+            Sua vaga na Imersão<br>tá <span class="text-[#F97316]">garantida.</span>
+        </h1>
+
+        <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
+            Você acabou de dar o primeiro passo pra parar de queimar grana com tráfego que não vende.
+        </p>
+
+        <!-- BOTÃO WHATSAPP GIGANTE -->
+        <a href="https://chat.whatsapp.com/EszxiMhT2My53kgSsoqwkJ"
+           target="_blank"
+           rel="noopener"
+           class="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE57] text-white font-black text-xl sm:text-2xl py-6 px-10 rounded-2xl pulse-wa transition-colors mb-4">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            ENTRAR NO GRUPO WHATSAPP AGORA
+        </a>
+        <p class="text-gray-500 text-sm">É no grupo que tudo acontece — avisos, materiais e link da imersão.</p>
+    </div>
+</section>
+
+<!-- ============================================================
+     PRÓXIMOS PASSOS
+============================================================ -->
+<section class="bg-[#0A0A0A] py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+        <p class="text-[#F97316] font-bold text-sm uppercase tracking-widest text-center mb-3">Próximos passos</p>
+        <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-12">
+            Faz isso <span class="text-[#F97316]">agora</span>, na ordem.
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- PASSO 1 -->
+            <div class="step-card rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-[#25D366]/15 flex items-center justify-center">
+                        <span class="text-[#25D366] text-2xl">✓</span>
+                    </div>
+                    <span class="text-gray-500 text-xs font-bold tracking-widest">PASSO 1</span>
+                </div>
+                <h3 class="text-white font-black text-xl mb-3">Entra no grupo</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">
+                    Tudo da imersão acontece pelo WhatsApp: link da sala, materiais, avisos, suporte. Quem não tá no grupo, perde.
+                </p>
+                <a href="https://chat.whatsapp.com/EszxiMhT2My53kgSsoqwkJ"
+                   target="_blank" rel="noopener"
+                   class="inline-block bg-[#25D366] hover:bg-[#1EBE57] text-white font-bold text-sm py-3 px-5 rounded-xl transition-colors">
+                    Entrar no grupo →
+                </a>
+            </div>
+
+            <!-- PASSO 2 -->
+            <div class="step-card rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-[#F97316]/15 flex items-center justify-center">
+                        <span class="text-[#F97316] text-xl">📅</span>
+                    </div>
+                    <span class="text-gray-500 text-xs font-bold tracking-widest">PASSO 2</span>
+                </div>
+                <h3 class="text-white font-black text-xl mb-3">Marca 06/06 na agenda</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">
+                    Sábado, 6 de junho. Bloqueia o dia inteiro. É 1 dia de imersão ao vivo — não dá pra dividir atenção.
+                </p>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Imers%C3%A3o+M%C3%A1quina+de+Vendas&dates=20260606T130000Z/20260606T230000Z&details=Imers%C3%A3o+ao+vivo+Digital+Master.+Link+da+sala+vai+chegar+pelo+grupo+do+WhatsApp.&location=Online"
+                   target="_blank" rel="noopener"
+                   class="inline-block bg-[#1A1A1A] hover:bg-[#252525] border border-[#F97316] text-[#F97316] font-bold text-sm py-3 px-5 rounded-xl transition-colors">
+                    Adicionar ao Google Calendar
+                </a>
+            </div>
+
+            <!-- PASSO 3 -->
+            <div class="step-card rounded-2xl p-7">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-[#F97316]/15 flex items-center justify-center">
+                        <span class="text-[#F97316] text-xl">🎁</span>
+                    </div>
+                    <span class="text-gray-500 text-xs font-bold tracking-widest">PASSO 3</span>
+                </div>
+                <h3 class="text-white font-black text-xl mb-3">Aguarda os bônus</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">
+                    Durante a semana você vai receber materiais de preparação e os bônus prometidos. Tudo vem pelo grupo. Fica de olho.
+                </p>
+                <div class="inline-block bg-[#1A1A1A] border border-[#1A1A1A] text-gray-500 font-bold text-sm py-3 px-5 rounded-xl">
+                    Em breve no grupo
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SUPORTE
+============================================================ -->
+<section class="bg-[#111] py-14 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+        <p class="text-[#F97316] font-bold text-sm uppercase tracking-widest mb-3">Precisa de ajuda?</p>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-5">
+            Qualquer problema com acesso, fala direto comigo.
+        </h2>
+        <p class="text-gray-400 mb-7">
+            Se algo não funcionar, se o pagamento travar, se você tiver dúvida sobre a imersão — me chama.
+        </p>
+        <a href="https://wa.me/5586981141438?text=Ol%C3%A1%2C%20Salatiel.%20Acabei%20de%20garantir%20minha%20vaga%20na%20Imers%C3%A3o%20M%C3%A1quina%20de%20Vendas%20e%20preciso%20de%20ajuda."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE57] text-white font-bold py-3 px-6 rounded-xl transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            (86) 98114-1438
+        </a>
+        <p class="text-gray-600 text-xs mt-4">Atendimento direto. Sem bot, sem fila.</p>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="bg-[#0A0A0A] border-t border-[#1A1A1A] py-10 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+        <p class="text-gray-500 text-base italic mb-2">"Movimento gera resultado."</p>
+        <p class="text-gray-700 text-sm mb-6">— Salatiel Batista, Digital Master</p>
+        <div class="flex items-center justify-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-[#F97316] flex items-center justify-center text-white font-black text-sm">DM</div>
+            <p class="text-gray-500 text-sm font-bold">Digital Master</p>
+        </div>
+        <p class="text-gray-700 text-xs">© 2026 Digital Master · CNPJ Grupo Master Point · Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPT — Personalização via querystring
+============================================================ -->
+<script>
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var nome = params.get('nome') || params.get('name') || '';
+        if (nome && nome.trim().length > 0) {
+            // Pega só o primeiro nome, capitaliza
+            var primeiro = nome.trim().split(/\s+/)[0];
+            primeiro = primeiro.charAt(0).toUpperCase() + primeiro.slice(1).toLowerCase();
+            var span = document.getElementById('hero-nome');
+            if (span) span.textContent = ', ' + primeiro + '.';
+        }
+    })();
+</script>
+
+</body>
+</html>

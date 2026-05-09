@@ -18,14 +18,21 @@
     <meta name="twitter:description" content="Em 1 dia de imersão ao vivo, o empresário monta um funil de vendas com IA que prospecta, qualifica e fecha sem depender de equipe, agência ou tráfego caro.">
 
     <!-- Meta Pixel Code -->
-    <!-- REPLACE: fb-pixel-id -->
-    <!--
     <script>
-    !function(f,b,e,v,n,t,s){...}
-    fbq('init', 'REPLACE_WITH_PIXEL_ID');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26504188302609300');
     fbq('track', 'PageView');
     </script>
-    -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=26504188302609300&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
 
     <!-- Google Tag Manager -->
     <!-- REPLACE: gtm-id -->
@@ -1372,6 +1379,55 @@
         localStorage.setItem('lgpd-ok','1');
         document.getElementById('cookie-banner').classList.add('hidden');
     }
+
+    // ── META PIXEL — FUNNEL TRACKING ───────────────────────
+    // ViewContent: dispara quando usuário rola até a seção da oferta (#checkout)
+    (function () {
+        if (typeof fbq !== 'function') return;
+        var offerSection = document.getElementById('checkout');
+        if (!offerSection) return;
+        var fired = false;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting && !fired) {
+                    fired = true;
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Imersao Maquina de Vendas',
+                        content_ids: ['imv-2026-06-06'],
+                        content_type: 'product',
+                        currency: 'BRL',
+                        value: 47.00
+                    });
+                    io.disconnect();
+                }
+            });
+        }, { threshold: 0.4 });
+        io.observe(offerSection);
+    })();
+
+    // InitiateCheckout: dispara no clique de qualquer CTA principal
+    // (links pra #checkout OU links externos cujo texto contenha "VAGA")
+    (function () {
+        if (typeof fbq !== 'function') return;
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest('a');
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            var txt = (a.textContent || '').toUpperCase();
+            var isCta = /VAGA|GARANTIR|QUERO MINHA/.test(txt);
+            var isCheckoutAnchor = href === '#checkout';
+            var isExternalCheckout = /kiwify|hotmart|eduzz|pay\./i.test(href);
+            if (isCta && (isCheckoutAnchor || isExternalCheckout || href === '#')) {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Imersao Maquina de Vendas',
+                    content_ids: ['imv-2026-06-06'],
+                    content_type: 'product',
+                    currency: 'BRL',
+                    value: 47.00
+                });
+            }
+        }, true);
+    })();
 </script>
 
 </body>
