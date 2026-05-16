@@ -119,6 +119,27 @@
         #sticky-bar { transform: translateY(100%); transition: transform 0.3s ease; }
         #sticky-bar.show { transform: translateY(0); }
 
+        /* Date topbar (sticky topo) */
+        #date-topbar {
+            background: linear-gradient(90deg, #F97316 0%, #FB923C 50%, #F97316 100%);
+            background-size: 200% 100%;
+            animation: shimmer 6s linear infinite;
+        }
+        @keyframes shimmer {
+            0%   { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @keyframes flame-pulse {
+            0%, 100% { transform: scale(1);   filter: drop-shadow(0 0 0 rgba(255,255,255,0)); }
+            50%      { transform: scale(1.18); filter: drop-shadow(0 0 6px rgba(255,255,255,0.7)); }
+        }
+        .flame-pulse { display: inline-block; animation: flame-pulse 1.6s ease-in-out infinite; }
+        /* Compensa altura da topbar no scroll-to-anchor */
+        html { scroll-padding-top: 56px; }
+        @media (max-width: 640px) {
+            html { scroll-padding-top: 44px; }
+        }
+
         /* ===== HERO MAQUINA DE VENDAS — cards flutuantes ===== */
         .hero-visual-wrap { width: 100%; max-width: 400px; }
 
@@ -203,6 +224,25 @@
 <body class="bg-[#0A0A0A] text-white">
 
 <!-- ============================================================
+     DATE TOPBAR (sticky topo - visivel em qualquer scroll)
+============================================================ -->
+<a href="#checkout" id="date-topbar"
+   class="fixed top-0 inset-x-0 z-50 flex items-center justify-center gap-2 sm:gap-3 px-3 py-2 sm:py-3 text-white font-black text-xs sm:text-sm md:text-base tracking-wide uppercase shadow-lg hover:brightness-110 transition-all">
+    <span class="flame-pulse text-base sm:text-lg">🔥</span>
+    <span class="hidden sm:inline">13 DE JUNHO</span>
+    <span class="sm:hidden">13/JUN</span>
+    <span class="opacity-70">·</span>
+    <span class="hidden md:inline">IMERSÃO MÁQUINA DE VENDAS</span>
+    <span class="md:hidden">IMERSÃO MV</span>
+    <span class="opacity-70">·</span>
+    <span class="hidden sm:inline">LOTE FUNDADORES R$47</span>
+    <span class="sm:hidden">R$47</span>
+    <span class="flame-pulse text-base sm:text-lg">🔥</span>
+</a>
+<!-- Spacer pra empurrar conteudo pra baixo da topbar fixa -->
+<div class="h-[44px] sm:h-[56px]" aria-hidden="true"></div>
+
+<!-- ============================================================
      LGPD COOKIE BANNER
 ============================================================ -->
 <div id="cookie-banner" class="fixed bottom-0 inset-x-0 z-50 bg-[#111] border-t border-gray-800 p-4 hidden">
@@ -264,8 +304,10 @@
         <!-- Coluna de texto -->
         <div class="flex-1 w-full">
             <!-- Badge -->
-            <div class="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 rounded-full px-4 py-2 mb-8">
+            <div class="inline-flex flex-wrap items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 rounded-full px-4 py-2 mb-8">
                 <span class="w-2 h-2 bg-[#F97316] rounded-full animate-pulse"></span>
+                <span class="text-[#F97316] text-sm font-bold tracking-wide">13 DE JUNHO · ONLINE · AO VIVO</span>
+                <span class="text-[#F97316]/40">|</span>
                 <span class="text-[#F97316] text-sm font-bold tracking-wide">LOTE FUNDADORES — APENAS 15 VAGAS</span>
             </div>
 
