@@ -1439,7 +1439,7 @@
                     fired = true;
                     fbq('track', 'ViewContent', {
                         content_name: 'Imersao Maquina de Vendas',
-                        content_ids: ['imv-2026-06-06'],
+                        content_ids: ['imv-2026-06-13'],
                         content_type: 'product',
                         currency: 'BRL',
                         value: 47.00
@@ -1466,8 +1466,28 @@
             if (isCta && (isCheckoutAnchor || isExternalCheckout || href === '#')) {
                 fbq('track', 'InitiateCheckout', {
                     content_name: 'Imersao Maquina de Vendas',
-                    content_ids: ['imv-2026-06-06'],
+                    content_ids: ['imv-2026-06-13'],
                     content_type: 'product',
+                    currency: 'BRL',
+                    value: 47.00
+                });
+            }
+        }, true);
+    })();
+
+    // Lead: dispara em QUALQUER clique em link wa.me (botao flutuante WhatsApp + outros)
+    // Permite campanha de Conversao otimizada por Lead pra trafego que vai pro WhatsApp
+    (function () {
+        if (typeof fbq !== 'function') return;
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest('a');
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            if (/(^|\/\/)wa\.me\//i.test(href) || /api\.whatsapp\.com\/send/i.test(href)) {
+                fbq('track', 'Lead', {
+                    content_name: 'Imersao MV - Click WhatsApp',
+                    content_category: 'imersao-mv',
+                    content_ids: ['imv-2026-06-13'],
                     currency: 'BRL',
                     value: 47.00
                 });
