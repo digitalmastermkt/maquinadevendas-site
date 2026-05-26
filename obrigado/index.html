@@ -26,14 +26,20 @@
         var valor = parseFloat((params.get('valor') || '47').replace(',', '.'));
         if (isNaN(valor) || valor <= 0) valor = 47;
         var orderId = params.get('order_id') || params.get('id') || '';
-        fbq('track', 'Purchase', {
+        var purchaseData = {
             value: valor,
             currency: 'BRL',
             content_name: 'Imersao Maquina de Vendas',
             content_ids: ['imv-2026-06-06'],
             content_type: 'product',
             order_id: orderId
-        });
+        };
+        // eventID = order_id deduplica com o evento server-side (CAPI Kiwify -> Meta)
+        if (orderId) {
+            fbq('track', 'Purchase', purchaseData, { eventID: orderId });
+        } else {
+            fbq('track', 'Purchase', purchaseData);
+        }
     })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
