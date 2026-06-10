@@ -1435,6 +1435,43 @@
         document.getElementById('cookie-banner').classList.add('hidden');
     }
 
+    // ── UTM PASSTHROUGH — propaga UTMs da LP para o checkout Kiwify ──
+    // A Meta entrega o tráfego em maquinadevendas...?utm_source=fb&utm_medium=paid&utm_content=c02-v1
+    // Este bloco anexa essas UTMs a TODO link de checkout (Kiwify/Hotmart/Eduzz/pay.)
+    // para que a venda no checkout seja atribuída ao criativo certo.
+    (function () {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var KEEP = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'src'];
+            var carry = new URLSearchParams();
+            KEEP.forEach(function (k) {
+                var v = params.get(k);
+                if (v) carry.set(k, v);
+            });
+            var qs = carry.toString();
+            if (!qs) return;
+            function decorate() {
+                var links = document.querySelectorAll('a[href]');
+                links.forEach(function (a) {
+                    var href = a.getAttribute('href') || '';
+                    if (!/kiwify|hotmart|eduzz|pay\./i.test(href)) return;
+                    if (/[?&](utm_source|utm_content)=/i.test(href)) return; // já tem UTM
+                    a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + qs);
+                });
+            }
+            decorate();
+            // Re-decora em cliques tardios (caso algo reescreva o href depois)
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a[href]');
+                if (!a) return;
+                var href = a.getAttribute('href') || '';
+                if (/kiwify|hotmart|eduzz|pay\./i.test(href) && !/[?&]utm_source=/i.test(href)) {
+                    a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + qs);
+                }
+            }, true);
+        } catch (err) { /* fail-safe: nunca quebrar a LP por causa de UTM */ }
+    })();
+
     // ── META PIXEL — FUNNEL TRACKING ───────────────────────
     // ViewContent: dispara quando usuário rola até a seção da oferta (#checkout)
     (function () {
@@ -1448,7 +1485,7 @@
                     fired = true;
                     fbq('track', 'ViewContent', {
                         content_name: 'Imersao Maquina de Vendas',
-                        content_ids: ['imv-2026-06-13'],
+                        content_ids: ['imv-2026-06-27'],
                         content_type: 'product',
                         currency: 'BRL',
                         value: 47.00
@@ -1475,7 +1512,7 @@
             if (isCta && (isCheckoutAnchor || isExternalCheckout || href === '#')) {
                 fbq('track', 'InitiateCheckout', {
                     content_name: 'Imersao Maquina de Vendas',
-                    content_ids: ['imv-2026-06-13'],
+                    content_ids: ['imv-2026-06-27'],
                     content_type: 'product',
                     currency: 'BRL',
                     value: 47.00
@@ -1496,7 +1533,7 @@
                 fbq('track', 'Lead', {
                     content_name: 'Imersao MV - Click WhatsApp',
                     content_category: 'imersao-mv',
-                    content_ids: ['imv-2026-06-13'],
+                    content_ids: ['imv-2026-06-27'],
                     currency: 'BRL',
                     value: 47.00
                 });
