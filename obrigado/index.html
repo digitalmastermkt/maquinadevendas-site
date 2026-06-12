@@ -34,11 +34,11 @@
             content_type: 'product',
             order_id: orderId
         };
-        // eventID = order_id deduplica com o evento server-side (CAPI Kiwify -> Meta)
+        // eventID = order_id deduplica com o evento server-side (CAPI Kiwify -> Meta).
+        // Sem order_id NAO dispara Purchase nenhum: o CAPI cobre 100% das vendas,
+        // e um Purchase browser sem eventID duplicaria a venda nas metricas.
         if (orderId) {
             fbq('track', 'Purchase', purchaseData, { eventID: orderId });
-        } else {
-            fbq('track', 'Purchase', purchaseData);
         }
     })();
     </script>
